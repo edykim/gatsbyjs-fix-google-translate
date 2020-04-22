@@ -16,12 +16,27 @@ exports.onPreBootstrap = ({ store }) => {
   })
 
   const key = "const { pagePath, location: browserLoc } = window"
+
+  // poor fix
+  //   const newCode = code.replace(
+  //     key,
+  //     `${key}
+
+  //   if (window.parent.location !== browserLoc) return
+  // `
+  //   )
+
+  // poor replacement
   const newCode = code.replace(
     key,
     `${key}
 
-  if (window.parent.location !== browserLoc) return
-`
+    if (window.parent.location !== browserLoc) {
+      browserLoc = {
+        pathname: pagePath
+      }
+    }
+  `
   )
 
   fs.writeFileSync(appFile, newCode, `utf-8`)
