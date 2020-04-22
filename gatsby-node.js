@@ -20,7 +20,7 @@ exports.onPreBootstrap = ({ store }) => {
     key,
     `${key}
 
-  if (window.parent.location === browserLoc) return
+  if (window.parent.location !== browserLoc) return
 `
   )
 
