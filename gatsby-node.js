@@ -29,7 +29,8 @@ exports.onPreBootstrap = ({ store }) => {
   // poor replacement
   const newCode = code.replace(
     key,
-    `${key}
+    `const { pagePath } = window
+    let { location: browserLoc } = window
 
     if (window.parent.location !== browserLoc) {
       browserLoc = {
