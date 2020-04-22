@@ -5,15 +5,3 @@
  */
 
 // You can delete this file if you're not using it
-
-const ReactDOM = require("react-dom")
-
-exports.replaceHydrateFunction = () => {
-  return (element, container, callback) => {
-    if (
-      window.location === window.parent.location &&
-      window.location.host !== "translate.googleusercontent.com"
-    )
-      ReactDOM.hydrate(element, container, callback)
-  }
-}
