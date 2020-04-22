@@ -10,7 +10,6 @@ const ReactDOM = require("react-dom")
 
 exports.replaceHydrateFunction = () => {
   return (element, container, callback) => {
-    debugger
     if (
       window.location === window.parent.location &&
       window.location.host !== "translate.googleusercontent.com"
