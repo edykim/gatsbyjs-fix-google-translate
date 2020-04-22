@@ -10,10 +10,7 @@ const ReactDOM = require("react-dom")
 
 exports.replaceHydrateFunction = () => {
   return (element, container, callback) => {
-    if (
-      window.location === window.parent.location &&
-      window.location.host !== "translate.googleusercontent.com"
-    )
+    if (window.location === window.parent.location)
       ReactDOM.hydrate(element, container, callback)
   }
 }
